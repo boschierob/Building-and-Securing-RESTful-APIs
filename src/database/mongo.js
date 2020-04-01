@@ -17,6 +17,11 @@ async function getDatabase() {
   return database;
 }
 
+async function closeDatabase() {
+  if (database) await getDatabase();
+  client.close();
+}
+
 module.exports = {
   getDatabase,
   startDatabase,
